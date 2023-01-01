@@ -1,12 +1,11 @@
 package io.github.h2sxxa.gensokyom.danmaku;
 
+import net.katsstuff.teamnightclipse.danmakucore.DanmakuCore;
+import net.katsstuff.teamnightclipse.danmakucore.danmaku.DanmakuState;
+import net.katsstuff.teamnightclipse.danmakucore.danmaku.DanmakuTemplate;
+import net.katsstuff.teamnightclipse.danmakucore.data.ShotData;
+import net.katsstuff.teamnightclipse.danmakucore.lib.data.LibForms;
 
-import net.katsstuff.danmakucore.DanmakuCore;
-import net.katsstuff.danmakucore.danmaku.DanmakuState;
-import net.katsstuff.danmakucore.danmaku.DanmakuTemplate;
-import net.katsstuff.danmakucore.data.ShotData;
-
-import net.katsstuff.danmakucore.lib.data.LibForms;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 
