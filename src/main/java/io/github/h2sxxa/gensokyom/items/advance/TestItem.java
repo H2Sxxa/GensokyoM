@@ -1,0 +1,33 @@
+package io.github.h2sxxa.gensokyom.items.advance;
+
+import io.github.h2sxxa.gensokyom.danmaku.Generator;
+import io.github.h2sxxa.gensokyom.items.ItemBase;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
+public class TestItem extends ItemBase {
+    public TestItem(String name, CreativeTabs tab) {
+        super(name, tab);
+    }
+
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+        Generator.createDan(player,worldIn);
+        return EnumActionResult.SUCCESS;
+    }
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn)
+    {
+        Generator.createDan(player,worldIn);
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
+    }
+}

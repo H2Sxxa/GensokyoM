@@ -1,0 +1,16 @@
+[
+{
+  "modid": "gensokyom",
+  "name": "Gensokyo M",
+  "description": "Gensokyo~",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["H2Sxxa"],
+  "credits": "Zun beer!!!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
