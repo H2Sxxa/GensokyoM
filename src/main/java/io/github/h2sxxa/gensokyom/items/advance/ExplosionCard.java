@@ -31,7 +31,7 @@ public class ExplosionCard extends CardBase {
                 .setShot(ShotData.DefaultShotData()
                         .setForm(LibForms.TALISMAN)
                         .setDamage(2f)
-                        .setSubEntity(GSKMSubenetites.SUBTYPE_EXPLOSION)
+                        .setSubEntity(GSKMSubenetites.EXPLOSION_SUBENTITY)
                 );
         List<DanmakuState> stateList = new ArrayList<DanmakuState>();
         stateList.add(temp.build().asEntity());
