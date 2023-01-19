@@ -8,7 +8,35 @@
   <img src="https://img.shields.io/github/license/IAXRetailer/GensokyoM" alt="license">
 </div>
 
-#### Intro
+### Intro
 
-Gensokyo in Memory - powered by DanmakuCore
+Gensokyo in Memory
+
+### How to use
+
+ 1. Install **Minecraft** and **Forge(>=1.12.2-2847)**
+ 2. Download the latest version of **mirror(>=0.5.0)** & **DanmakuCore(>=0.8)**
+ 3. Download this mod from the repo
+ 4. Put them on **mods** directory
+ 5. Launch Game and Enjoy 
+
+
+### Discussion
+
+ - QQ: https://jq.qq.com/?_wv=1027&k=nNyXQBnv
+
+### Declaration
+
+I refered to these repos when developing,thanks a lot
+
+(in **no particular** order)
+
+#### DanmakuCore
+
+https://github.com/TeamNightclipse/DanmakuCore
+
+#### Grimoire-Of-Alice
+
+https://github.com/TeamNightclipse/Grimoire-Of-Alice
+
 
