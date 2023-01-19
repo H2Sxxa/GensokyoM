@@ -11,7 +11,12 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION)
+@Mod(
+        modid = Main.MODID,
+        name = Main.NAME,
+        version = Main.VERSION,
+        dependencies = "required-after:mirror@[0.4.0,);required-after:danmakucore"
+)
 public class Main
 {
     public static final String MODID = "gensokyom";
