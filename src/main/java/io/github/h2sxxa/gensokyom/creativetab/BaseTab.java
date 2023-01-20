@@ -3,16 +3,24 @@ package io.github.h2sxxa.gensokyom.creativetab;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nonnull;
+import java.util.Objects;
 
 public class BaseTab extends CreativeTabs {
-    ItemStack Icon;
-    public <T> BaseTab(String label,T icon) {
+    String icon;
+    public BaseTab(String label,String icon) {
         super(CreativeTabs.getNextID(), label);
-        this.Icon=(icon instanceof ItemStack ? (ItemStack) icon :new ItemStack((Item) icon));
+        this.icon=icon;
+        System.out.println(icon);
     }
 
-    @Override
+
+    @SideOnly(Side.CLIENT)
+    @Nonnull
     public ItemStack getTabIconItem() {
-        return this.Icon;
+        return new ItemStack(Objects.requireNonNull(Item.getByNameOrId(this.icon)));
     }
 }

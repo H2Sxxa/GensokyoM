@@ -5,8 +5,7 @@ import net.katsstuff.teamnightclipse.danmakucore.danmaku.DanmakuUpdate;
 import net.katsstuff.teamnightclipse.danmakucore.danmaku.subentity.SubEntity;
 import net.katsstuff.teamnightclipse.danmakucore.danmaku.subentity.SubEntityType;
 import net.katsstuff.teamnightclipse.danmakucore.impl.subentity.SubEntityDefault;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.RayTraceResult;
 
 
 public class ExplosionEntityType extends SubEntityType {
@@ -18,17 +17,19 @@ public class ExplosionEntityType extends SubEntityType {
         return new ExplosionEntity();
     }
 
-    class ExplosionEntity extends SubEntityDefault {
+    static class ExplosionEntity extends SubEntityDefault {
         @Override
-        public DanmakuUpdate subEntityTick(DanmakuState danmaku) {
-            return super.subEntityTick(danmaku).addCallbackIf(!danmaku.world().isRemote, () -> {
-                AxisAlignedBB bb = new AxisAlignedBB(danmaku.pos().toBlockPos()).grow(danmaku.shot().sizeX(), danmaku.shot().sizeY(), danmaku.shot().sizeZ());
-                danmaku.world().getEntitiesWithinAABB(EntityLivingBase.class, bb).forEach(e -> {
-                    if (e != danmaku.source().get()){
-                        e.world.newExplosion(e, e.posX, e.posY, e.posZ, 2, true, true);
-                    }
-                });
-            });
+        public DanmakuUpdate impactEntity(DanmakuState danmaku, RayTraceResult raytrace) {
+            return super.impactEntity(danmaku, raytrace).addCallbackIf(!danmaku.world().isRemote, () -> danmaku.world().newExplosion(
+                    raytrace.entityHit,
+                    raytrace.entityHit.posX,
+                    raytrace.entityHit.posY,
+                    raytrace.entityHit.posZ,
+                    2,
+                    true,
+                    true)
+            );
         }
+
     }
 }
