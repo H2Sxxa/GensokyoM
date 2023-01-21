@@ -14,7 +14,6 @@ public class BaseTab extends CreativeTabs {
     public BaseTab(String label,String icon) {
         super(CreativeTabs.getNextID(), label);
         this.icon=icon;
-        System.out.println(icon);
     }
 
 

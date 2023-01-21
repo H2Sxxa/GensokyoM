@@ -25,18 +25,36 @@ Gensokyo in Memory
 
  - QQ: https://jq.qq.com/?_wv=1027&k=nNyXQBnv
 
-### Declaration
+### Credits
 
-I refered to these repos when developing,thanks a lot
+##### In **no particular** order
 
-(in **no particular** order)
+#### 上海アリス幻樂団 / Zun : Made the Touhou Project
 
-#### DanmakuCore
+#### Code
+
+##### I refered to these repos when developing,thanks a lot
+
+<details>
+<summary>details</summary>
+
+##### DanmakuCore
 
 https://github.com/TeamNightclipse/DanmakuCore
 
-#### Grimoire-Of-Alice
+##### Grimoire-Of-Alice
 
 https://github.com/TeamNightclipse/Grimoire-Of-Alice
 
+</details>
 
+#### Assets
+
+##### I adapt some assets from them,all of them should remain original LICENSE
+
+<details>
+<summary>details</summary>
+
+...
+
+</details>
