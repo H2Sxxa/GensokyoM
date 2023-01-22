@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "gensokyom:items/golden_go_hei"
+  }
+}

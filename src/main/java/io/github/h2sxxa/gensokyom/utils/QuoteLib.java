@@ -3,20 +3,35 @@ package io.github.h2sxxa.gensokyom.utils;
 import net.katsstuff.teamnightclipse.danmakucore.danmaku.form.Form;
 import net.katsstuff.teamnightclipse.danmakucore.lib.data.LibForms;
 
-import java.util.Arrays;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuoteLib {
-    public static List<Form> FormArray = Arrays.asList(
-            LibForms.TALISMAN,
-            LibForms.BUBBLE,
-            LibForms.CONTROL,
-            LibForms.FIRE,
-            LibForms.CRYSTAL_1,
-            LibForms.CRYSTAL_2,
-            LibForms.KUNAI,
-            LibForms.STAR,
-            LibForms.SCALE
-        );
+    public static List<Form> FormArray = getAllForm();
+
+
+    public static List<Form> getAllForm() {
+        List<Form> FormArray = new ArrayList<>();
+        Class CLibForm;
+        try {
+            CLibForm = Class.forName(LibForms.class.getName());
+            Field[] fields = CLibForm.getFields();
+            for (Field field:fields){
+                field.setAccessible(true);
+                try {
+                    Object vaule = field.get(null);
+                    if (vaule instanceof Form){
+                        FormArray.add((Form) vaule);
+                    }
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return FormArray;
+    }
 
 }

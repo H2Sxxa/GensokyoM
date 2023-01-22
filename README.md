@@ -46,6 +46,10 @@ https://github.com/TeamNightclipse/DanmakuCore
 
 https://github.com/TeamNightclipse/Grimoire-Of-Alice
 
+##### Avaritia
+
+https://github.com/Morpheus1101/Avaritia/tree/1.12.2
+
 </details>
 
 #### Assets

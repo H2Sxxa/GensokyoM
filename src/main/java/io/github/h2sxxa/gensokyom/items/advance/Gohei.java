@@ -1,6 +1,10 @@
 package io.github.h2sxxa.gensokyom.items.advance;
 
+import io.github.h2sxxa.gensokyom.items.CardBase;
 import io.github.h2sxxa.gensokyom.items.ItemBase;
+import io.github.h2sxxa.gensokyom.items.WeaponBase;
+import io.github.h2sxxa.gensokyom.utils.DanmakuUtils;
+import io.github.h2sxxa.gensokyom.utils.QuoteLib;
 import net.katsstuff.teamnightclipse.danmakucore.DanmakuCore;
 import net.katsstuff.teamnightclipse.danmakucore.danmaku.DanmakuState;
 import net.katsstuff.teamnightclipse.danmakucore.danmaku.DanmakuTemplate;
@@ -9,35 +13,29 @@ import net.katsstuff.teamnightclipse.danmakucore.lib.data.LibForms;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.item.ItemSword;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.lwjgl.input.Keyboard;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Gohei extends ItemBase {
+public class Gohei extends WeaponBase {
     public Gohei(String name, CreativeTabs tab) {
-        super(name, tab);
+        super(name, tab,ToolMaterial.DIAMOND);
+        setMaxStackSize(1);
+        setMaxDamage(3299);
     }
 
     public void onShot(World worldIn, EntityPlayer player) {
-        DanmakuTemplate.Builder temp = DanmakuTemplate.builder()
-                .setUser(player)
-                .setWorld(worldIn)
-                .setSource(player)
-                .setMovementData(1D)
-                .setShot(ShotData.DefaultShotData()
-                        .setForm(LibForms.FIRE)
-                        .setDamage(2f)
-                );
-        List<DanmakuState> stateList = new ArrayList<>();
-        stateList.add(temp.build().asEntity());
-        DanmakuCore.spawnDanmaku(stateList);
+        if (player.getHeldItem(EnumHand.MAIN_HAND).getItem() == this){
+            if (player.getHeldItem(EnumHand.OFF_HAND).getItem() instanceof CardBase){
+                CardBase cb = (CardBase) player.getHeldItem(EnumHand.OFF_HAND).getItem();
+                cb.onCardUse(worldIn,player,EnumHand.OFF_HAND);
+            }
+            else {
+                DanmakuUtils.shotDanmaku(player,worldIn,LibForms.TALISMAN);
+                player.getCooldownTracker().setCooldown(this,10);
+            }
+        }
     }
 
     @Override
@@ -50,9 +48,6 @@ public class Gohei extends ItemBase {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn)
     {
-        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
-
-        }
         onShot(worldIn,player);
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
     }
