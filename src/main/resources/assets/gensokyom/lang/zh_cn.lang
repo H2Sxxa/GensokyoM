@@ -1,0 +1,14 @@
+#items
+item.go_hei.name=御币
+item.golden_go_hei.name=御币99 Pro+
+item.explosion_card.name=爆炸符礼
+
+#tabs
+itemGroup.weapon_tab=记忆中幻想乡 | 武器
+itemGroup.card_tab=记忆中幻想乡 | 符礼
+
+#tips
+tip.myinf=非常高的?
+
+item.golden_go_hei.gensokyom.tip=据说是博丽的巫女解决异变时，从一只大狸子店里借的武器，/n/n§c*该物品极易破碎*
+item.go_hei.gensokyom.tip=巫女的御币，实在是居家旅行必备的良品/n/n§a · 把一些符礼置于副手发射程度的能力。

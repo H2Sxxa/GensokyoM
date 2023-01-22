@@ -2,6 +2,8 @@ package io.github.h2sxxa.gensokyom.utils;
 
 import net.katsstuff.teamnightclipse.danmakucore.danmaku.form.Form;
 import net.katsstuff.teamnightclipse.danmakucore.lib.data.LibForms;
+import net.minecraft.item.Item;
+import net.minecraftforge.common.util.EnumHelper;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.List;
 
 public class QuoteLib {
     public static List<Form> FormArray = getAllForm();
-
+    public static Item.ToolMaterial UseLessMaterial = EnumHelper.addToolMaterial("uselessmaterial",0,1,1,0,1);
 
     public static List<Form> getAllForm() {
         List<Form> FormArray = new ArrayList<>();

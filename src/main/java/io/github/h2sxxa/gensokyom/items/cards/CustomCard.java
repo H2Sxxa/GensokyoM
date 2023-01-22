@@ -1,4 +1,4 @@
-package io.github.h2sxxa.gensokyom.items.advance;
+package io.github.h2sxxa.gensokyom.items.cards;
 
 import io.github.h2sxxa.gensokyom.items.CardBase;
 import io.github.h2sxxa.gensokyom.subentity.GSKMSubenetites;

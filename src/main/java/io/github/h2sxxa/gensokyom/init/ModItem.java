@@ -1,9 +1,9 @@
 package io.github.h2sxxa.gensokyom.init;
 
 import io.github.h2sxxa.gensokyom.creativetab.ModTabs;
-import io.github.h2sxxa.gensokyom.items.advance.CustomCard;
-import io.github.h2sxxa.gensokyom.items.advance.Gohei;
-import io.github.h2sxxa.gensokyom.items.advance.GoldenGohei;
+import io.github.h2sxxa.gensokyom.items.cards.CustomCard;
+import io.github.h2sxxa.gensokyom.items.weapon.Gohei;
+import io.github.h2sxxa.gensokyom.items.weapon.GoldenGohei;
 import io.github.h2sxxa.gensokyom.subentity.GSKMSubenetites;
 import net.minecraft.item.Item;
 

@@ -1,19 +1,12 @@
-package io.github.h2sxxa.gensokyom.items.advance;
+package io.github.h2sxxa.gensokyom.items.weapon;
 
 import io.github.h2sxxa.gensokyom.items.CardBase;
-import io.github.h2sxxa.gensokyom.items.ItemBase;
 import io.github.h2sxxa.gensokyom.items.WeaponBase;
 import io.github.h2sxxa.gensokyom.utils.DanmakuUtils;
-import io.github.h2sxxa.gensokyom.utils.QuoteLib;
-import net.katsstuff.teamnightclipse.danmakucore.DanmakuCore;
-import net.katsstuff.teamnightclipse.danmakucore.danmaku.DanmakuState;
-import net.katsstuff.teamnightclipse.danmakucore.danmaku.DanmakuTemplate;
-import net.katsstuff.teamnightclipse.danmakucore.data.ShotData;
 import net.katsstuff.teamnightclipse.danmakucore.lib.data.LibForms;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
