@@ -18,8 +18,16 @@ Gensokyo in Memory
  2. Download the latest version of **mirror(>=0.5.0)** & **DanmakuCore(>=0.8)**
  3. Download this mod from the repo
  4. Put them on **mods** directory
- 5. Launch Game and Enjoy 
+ 5. Launch Game and Enjoy
 
+### GIFS
+
+<details>
+<summary>details</summary>
+
+![](docs/gifs/show1.gif)
+
+</details>
 
 ### Discussion
 

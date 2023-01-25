@@ -3,6 +3,7 @@ package io.github.h2sxxa.gensokyom.events;
 
 import io.github.h2sxxa.gensokyom.init.ModItem;
 import io.github.h2sxxa.gensokyom.interfaces.IHasModel;
+import io.github.h2sxxa.gensokyom.items.SpellCardBase;
 import net.katsstuff.teamnightclipse.danmakucore.entity.spellcard.Spellcard;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -25,7 +26,10 @@ public class ModReg {
     }
     @SubscribeEvent
     public static void onSpellCardRegister(RegistryEvent.Register<Spellcard> event){
-        event.getRegistry().registerAll();
+        System.out.println("start to reg mod spc");
+        event.getRegistry().registerAll(
+               // new SpellCardBase()
+        );
     }
 
     @SubscribeEvent
