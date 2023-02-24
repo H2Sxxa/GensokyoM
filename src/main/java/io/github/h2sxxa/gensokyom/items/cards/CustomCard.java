@@ -1,5 +1,6 @@
 package io.github.h2sxxa.gensokyom.items.cards;
 
+import io.github.h2sxxa.gensokyom.items.CanShotBase;
 import io.github.h2sxxa.gensokyom.items.CardBase;
 import io.github.h2sxxa.gensokyom.subentity.GSKMSubenetites;
 import net.katsstuff.teamnightclipse.danmakucore.DanmakuCore;
@@ -16,7 +17,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomCard extends CardBase {
+public class CustomCard extends CanShotBase {
     SubEntityType subentity;
     public CustomCard(String name, CreativeTabs tab, SubEntityType cdsubEntityType) {
         super(name, tab);
@@ -24,8 +25,8 @@ public class CustomCard extends CardBase {
     }
 
     @Override
-    public void onCardUse(World worldIn, EntityPlayer player, EnumHand handIn) {
-        super.onCardUse(worldIn, player, handIn);
+    public void onShotUse(World worldIn, EntityPlayer player, EnumHand handIn) {
+        super.onShotUse(worldIn, player, handIn);
         DanmakuTemplate.Builder temp = DanmakuTemplate.builder()
                 .setUser(player)
                 .setWorld(worldIn)

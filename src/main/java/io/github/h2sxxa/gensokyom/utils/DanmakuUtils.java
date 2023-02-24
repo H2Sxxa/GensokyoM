@@ -10,6 +10,9 @@ import net.katsstuff.teamnightclipse.danmakucore.danmaku.subentity.SubEntityType
 import net.katsstuff.teamnightclipse.danmakucore.data.ShotData;
 import net.katsstuff.teamnightclipse.danmakucore.lib.LibColor;
 import net.katsstuff.teamnightclipse.danmakucore.lib.data.LibForms;
+import net.katsstuff.teamnightclipse.mirror.client.shaders.UniformType;
+import net.katsstuff.teamnightclipse.mirror.data.Vector3;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 
@@ -33,5 +36,11 @@ public class DanmakuUtils {
         List<DanmakuState> stateList = new ArrayList<>();
         stateList.add(temp.build().asEntity());
         DanmakuCore.spawnDanmaku(stateList);
+    }
+
+    public static Vector3 genLaserVec(Entity entity){
+        Vector3 pos_start = Vector3.fromEntityCenter(entity);
+        pos_start.multiply(40f);
+        return pos_start;
     }
 }

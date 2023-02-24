@@ -22,7 +22,7 @@ public class Gohei extends WeaponBase {
         if (player.getHeldItem(EnumHand.MAIN_HAND).getItem() == this){
             if (player.getHeldItem(EnumHand.OFF_HAND).getItem() instanceof CardBase){
                 CardBase cb = (CardBase) player.getHeldItem(EnumHand.OFF_HAND).getItem();
-                cb.onCardUse(worldIn,player,EnumHand.OFF_HAND);
+                cb.onShotUse(worldIn,player,EnumHand.OFF_HAND);
             }
             else {
                 DanmakuUtils.shotDanmaku(player,worldIn,LibForms.TALISMAN);

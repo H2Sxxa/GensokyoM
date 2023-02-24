@@ -1,5 +1,6 @@
 package io.github.h2sxxa.gensokyom.items;
 
+import io.github.h2sxxa.gensokyom.items.ItemBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -10,13 +11,11 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class CardBase extends CanShotBase{
-    public CardBase(String name, CreativeTabs tab) {
+public class CanShotBase extends ItemBase {
+    public CanShotBase(String name, CreativeTabs tab) {
         super(name, tab);
-
     }
     public void onShotUse(World worldIn, EntityPlayer player, EnumHand handIn){
-        player.getHeldItem(handIn).shrink(1);
     }
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
