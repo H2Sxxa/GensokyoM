@@ -32,10 +32,9 @@ public class GossipStove extends CanShotBase {
                         .setDamage(2f)
                         .scaleSize(10f)
                 );
-        temp.setPos(new Vector3(player).offset(
-                new Vector3(player).normalize(),
-                30)
-        );
+        Vector3 start_vec = new Vector3(player)
+                .offset(new Vector3(player.getLookVec()).normalize(),70);
+        temp.setPos(start_vec);
         DanmakuCore.spawnDanmaku(Collections.singletonList(temp.build().asEntity()));
     }
 }
