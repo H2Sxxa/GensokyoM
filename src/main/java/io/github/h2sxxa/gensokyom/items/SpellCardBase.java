@@ -1,21 +1,44 @@
 package io.github.h2sxxa.gensokyom.items;
 
-import io.github.h2sxxa.gensokyom.spallcardentity.CustomSCE;
+import io.github.h2sxxa.gensokyom.Main;
+import io.github.h2sxxa.gensokyom.init.ModSpellCard;
 import net.katsstuff.teamnightclipse.danmakucore.entity.living.TouhouCharacter;
 import net.katsstuff.teamnightclipse.danmakucore.entity.spellcard.EntitySpellcard;
 import net.katsstuff.teamnightclipse.danmakucore.entity.spellcard.Spellcard;
 import net.katsstuff.teamnightclipse.danmakucore.entity.spellcard.SpellcardEntity;
 import net.minecraft.entity.EntityLivingBase;
+
 import scala.Option;
 
+import java.lang.reflect.Constructor;
 
-public class SpellCardBase extends Spellcard {
-    public SpellCardBase (){
-        super("cus_spc");
+
+public class SpellCardBase<T> extends Spellcard {
+    String name;
+    TouhouCharacter character;
+    Class<T> spellcard;
+    public SpellCardBase (String name,Class<T> spellcard,TouhouCharacter character){
+        super(name);
+        this.name=name;
+        this.character=character;
+        this.spellcard=spellcard;
+
+        ModSpellCard.SPELL_CARDS.add(this);
     }
     @Override
     public SpellcardEntity instantiate(EntitySpellcard entitySpellcard, Option<EntityLivingBase> target) {
-        return new CustomSCE(this,entitySpellcard,target);
+        //return spellcard(this,entitySpellcard,target);
+        try {
+            Constructor<T> constructor = this.spellcard.getDeclaredConstructor(Spellcard.class,EntitySpellcard.class,Option.class);
+            constructor.setAccessible(true);
+            return (SpellcardEntity) constructor.newInstance(this,entitySpellcard,target);
+        } catch (Exception e) {
+            Main.logger.error("Reflect Failed");
+            return new SpellcardEntity(this,entitySpellcard,target) {
+                @Override
+                public void onSpellcardUpdate() {}
+            };
+        }
     }
 
     @Override
@@ -35,6 +58,6 @@ public class SpellCardBase extends Spellcard {
 
     @Override
     public TouhouCharacter touhouUser() {
-        return TouhouCharacter.REIMU_HAKUREI;
+        return this.character;
     }
 }

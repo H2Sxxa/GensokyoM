@@ -11,6 +11,7 @@ public class CustomSCE extends SpellcardEntity {
         super(spellcard, cardEntity, target);
     }
 
+
     @Override
     public void onSpellcardUpdate() {
 
