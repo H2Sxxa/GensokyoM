@@ -8,7 +8,7 @@ import net.katsstuff.teamnightclipse.danmakucore.entity.spellcard.Spellcard;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@SuppressWarnings("unused")
 public class ModSpellCard {
     public static final List<Spellcard> SPELL_CARDS = new ArrayList<>();
 

@@ -12,8 +12,11 @@ import scala.Option;
 
 import java.lang.reflect.Constructor;
 
-
-public class SpellCardBase<T> extends Spellcard {
+@SuppressWarnings("unused")
+public class SpellCardBase<T extends SpellcardEntity> extends Spellcard {
+    int level = 1;
+    int removeTime = 50;
+    int endTime = 50;
     String name;
     TouhouCharacter character;
     Class<T> spellcard;
@@ -27,11 +30,10 @@ public class SpellCardBase<T> extends Spellcard {
     }
     @Override
     public SpellcardEntity instantiate(EntitySpellcard entitySpellcard, Option<EntityLivingBase> target) {
-        //return spellcard(this,entitySpellcard,target);
         try {
             Constructor<T> constructor = this.spellcard.getDeclaredConstructor(Spellcard.class,EntitySpellcard.class,Option.class);
             constructor.setAccessible(true);
-            return (SpellcardEntity) constructor.newInstance(this,entitySpellcard,target);
+            return constructor.newInstance(this,entitySpellcard,target);
         } catch (Exception e) {
             Main.logger.error("Reflect Failed");
             return new SpellcardEntity(this,entitySpellcard,target) {
@@ -43,17 +45,32 @@ public class SpellCardBase<T> extends Spellcard {
 
     @Override
     public int level() {
-        return 1;
+        return this.level;
+    }
+
+    public Spellcard setlevel(int level){
+        this.level=level;
+        return this;
     }
 
     @Override
     public int removeTime() {
-        return 50;
+        return this.removeTime;
+    }
+
+    public Spellcard setremoveTime(int removeTime){
+        this.removeTime=removeTime;
+        return this;
     }
 
     @Override
     public int endTime() {
-        return 50;
+        return this.endTime;
+    }
+
+    public Spellcard setendTime(int endTime){
+        this.endTime=endTime;
+        return this;
     }
 
     @Override
