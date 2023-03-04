@@ -1,10 +1,7 @@
 package io.github.h2sxxa.gensokyom.items.cards;
 
 import io.github.h2sxxa.gensokyom.items.CanShotBase;
-import io.github.h2sxxa.gensokyom.items.CardBase;
-import io.github.h2sxxa.gensokyom.subentity.GSKMSubenetites;
 import net.katsstuff.teamnightclipse.danmakucore.DanmakuCore;
-import net.katsstuff.teamnightclipse.danmakucore.danmaku.DanmakuState;
 import net.katsstuff.teamnightclipse.danmakucore.danmaku.DanmakuTemplate;
 import net.katsstuff.teamnightclipse.danmakucore.danmaku.subentity.SubEntityType;
 import net.katsstuff.teamnightclipse.danmakucore.data.ShotData;
@@ -14,16 +11,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
-public class CustomCard extends CanShotBase {
-    SubEntityType subentity;
-    public CustomCard(String name, CreativeTabs tab, SubEntityType cdsubEntityType) {
+public abstract class CustomCard extends CanShotBase {
+    public CustomCard(String name, CreativeTabs tab) {
         super(name, tab);
-        this.subentity=cdsubEntityType;
     }
-
+    public abstract SubEntityType getSubentity();
+    public DanmakuTemplate.Builder reShape(DanmakuTemplate.Builder builder){
+        return builder;
+    }
     @Override
     public void onShotUse(World worldIn, EntityPlayer player, EnumHand handIn) {
         super.onShotUse(worldIn, player, handIn);
@@ -35,10 +32,8 @@ public class CustomCard extends CanShotBase {
                 .setShot(ShotData.DefaultShotData()
                         .setForm(LibForms.TALISMAN)
                         .setDamage(2f)
-                        .setSubEntity(GSKMSubenetites.EXPLOSION_SUBENTITY)
+                        .setSubEntity(getSubentity())
                 );
-        List<DanmakuState> stateList = new ArrayList<>();
-        stateList.add(temp.build().asEntity());
-        DanmakuCore.spawnDanmaku(stateList);
+        DanmakuCore.spawnDanmaku(Collections.singletonList(reShape(temp).build().asEntity()));
     }
 }
