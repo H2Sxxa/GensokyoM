@@ -1,6 +1,6 @@
 <div align=center>
-  <img src="docs/img/bg.jpg"  alt="[BG](docs/img/bg.jpg)"/>
-  <h1 align="center">GensokyoM</h1> 
+  <img src="docs/img/bg2.png"  alt="[BG](docs/img/bg2.png)"/>
+  <h1 align="center" style="font-weight:bold">GensokyoM(WIP)</h1> 
 </div>
 <div align=center>
   <img src="https://img.shields.io/badge/java-1.8.0-red" alt="java">
@@ -10,7 +10,7 @@
 
 ### Intro
 
-Gensokyo in Memory
+Gensokyo in Memory,a mod for Minecraft **(NOT READY TO USE NOW)**
 
 ### How to use
 
@@ -67,6 +67,12 @@ https://github.com/Morpheus1101/Avaritia/tree/1.12.2
 <details>
 <summary>details</summary>
 
-...
+##### BG2
+ 
+Artist: https://www.pixiv.net/users/56529134/artworks
+
+Illust: https://www.pixiv.net/artworks/104833889
+
+
 
 </details>
